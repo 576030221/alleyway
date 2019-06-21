@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<!-- 
+		targetRuntime="MyBatis3Simple":生成简单版的CRUD
+		MyBatis3:豪华版
+	
+	 -->
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  	<!-- jdbcConnection：指定如何连接到目标数据库 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://122.112.213.121:3306/alleyway?allowMultiQueries=true"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+
+	<!-- java解析器 -->
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+	<!-- javaModelGenerator：指定javaBean的生成策略 
+	targetPackage="test.model"：目标包名
+	targetProject="\MBGTestProject\src"：目标工程
+	-->
+    <javaModelGenerator targetPackage="com.alleyway.bean"
+    		targetProject="./src/main/java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+	<!-- sqlMapGenerator：sql映射生成策略： -->
+    <sqlMapGenerator targetPackage="mapper"
+    	targetProject="./src/main/resources/mybatis">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	<!-- javaClientGenerator:指定mapper接口所在的位置 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.alleyway.dao"
+    	targetProject="./src/main/java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+	<!-- 指定要逆向分析哪些表：根据表要创建javaBean -->
+      <!--<table tableName="aw_area" domainObjectName="Area"></table>-->
+      <!--<table tableName="aw_bullet_acreen" domainObjectName="BulletAcreen"></table>-->
+      <!--<table tableName="aw_comment" domainObjectName="Comment"></table>-->
+      <!--<table tableName="aw_commodity" domainObjectName="Commodity"></table>-->
+      <!--<table tableName="aw_commodity_image" domainObjectName="CommodityImage"></table>-->
+      <!--<table tableName="aw_empirical_increase_rule" domainObjectName="EmpiricalIncreaseRule"></table>-->
+      <!--<table tableName="aw_empirical_rule" domainObjectName="EmpiricalRule"></table>-->
+      <!--<table tableName="aw_head_portrait" domainObjectName="HeadPortrait"></table>-->
+      <!--<table tableName="aw_index_slideshow" domainObjectName="IndexSlideshow"></table>-->
+      <!--<table tableName="aw_message" domainObjectName="Message"></table>-->
+      <!--<table tableName="aw_order" domainObjectName="Order"></table>-->
+      <!--<table tableName="aw_order_detail" domainObjectName="OrderDetail"></table>-->
+      <!--<table tableName="aw_pendant" domainObjectName="Pendant"></table>-->
+      <!--<table tableName="aw_reply" domainObjectName="Reply"></table>-->
+      <!--<table tableName="aw_sensitive_word" domainObjectName="SensitiveWord"></table>-->
+      <!--<table tableName="aw_user" domainObjectName="User"></table>-->
+      <!--<table tableName="aw_user_grade" domainObjectName="UserGrade"></table>-->
+      <!--<table tableName="aw_user_operation" domainObjectName="UserOperation"></table>-->
+      <!--<table tableName="aw_video" domainObjectName="Video"></table>-->
+      <!--<table tableName="aw_video_label" domainObjectName="VideoLabel"></table>-->
+      <!--<table tableName="aw_video_image" domainObjectName="VideoImage"></table>-->
+      <!--<table tableName="aw_works" domainObjectName="Works"></table>-->
+      <!--<table tableName="aw_works_keyword" domainObjectName="WorksKeyword"></table>-->
+      <!--<table tableName="aw_works_label" domainObjectName="WorksLabel"></table>-->
+
+      <!--<table tableName="aw_user_role" domainObjectName="UserRole"></table>-->
+      <!--<table tableName="aw_role_tright" domainObjectName="RoleTright"></table>-->
+      <!--<table tableName="aw_tright" domainObjectName="Tright"></table>-->
+      <!--<table tableName="aw_systematic_notification" domainObjectName="SystematicNotification"></table>-->
+      <!--<table tableName="aw_shopping_trolley" domainObjectName="ShoppingTrolley"></table>-->
+      <!--<table tableName="aw_commodity_comment" domainObjectName="CommodityComment"></table>-->
+      <!--<table tableName="aw_commodity_comment_image" domainObjectName="CommodityCommentImage"></table>-->
+  </context>
+</generatorConfiguration>

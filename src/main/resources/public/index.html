@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小巷子</title>
+    <script type="text/javascript" src="../js/wangEditor.min.js"></script>
+    <script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="upimgForm" method="post" action="/works/saveWorks" enctype="multipart/form-data">
+    <input type="text" name="userId" value="14"/>
+    <input type="text" name="labelId" value="2"/>
+    <input type="text" name="title" value="测试标题"/>
+    <input type="file" name="cover"/>
+
+    <div id="div1" class="toolbar"></div><!-- 头选择样式菜单 -->
+    <div style="padding: 5px 0; color: #ccc"></div><!-- 中间隔离带 -->
+    <div id="div2" class="text"> <!--输入内容的地方，可使用 min-height 实现编辑区域自动增加高度-->
+    </div>
+    <textarea name="content" id="text1" style="width:100%; height:200px; display: none;"></textarea><!-- 【】使用 textarea ，可以不用，自动把内容更新到这个里面，就能直接提交这里面的内容了-->
+
+    <button onclick="up()">开始上传</button>
+
+</form>
+
+</body>
+
+<script>
+
+
+            var E = window.wangEditor
+            var editor = new E('#div1', '#div2')  // 两个参数也可以传入 elem 对象，class 选择器
+
+            editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片,可限制图片大小,张数
+            // editor.customConfig.uploadImgServer = '/newsUpload'
+            editor.customConfig.uploadFileName = 'imgFile'	//定义图片的名称
+            // 隐藏“网络图片”tab
+            editor.customConfig.showLinkImg = false
+
+            // 忽略粘贴内容中的图片(可选）)
+            editor.customConfig.pasteIgnoreImg = true
+            // 同步内容到textarea
+            var $text1 = $('#text1')
+            // 监控变化，同步更新到 textarea
+            editor.customConfig.onchange = function (html) {
+                $text1.val(html)
+            }
+            editor.customConfig.menus = [  /* 自定义菜单项 ，具体能打的内容，看页面的最后*/
+                'fontSize',  // 字号
+                'bold',  // 粗体
+                'underline',  // 下划线
+                'foreColor',  // 文字颜色
+                'backColor',  // 背景颜色
+                'link',  // 插入链接
+                'justify',  // 对齐方式
+                'image',  // 插入图片
+                'undo',  // 撤销
+            ]
+
+            editor.create()
+            // 读取 html
+            document.getElementById('btn1').addEventListener('click', function () {
+                alert(editor.txt.html())
+            }, false)
+
+            function up(){
+                $("#upimgForm").submit();
+            }
+</script>
+</html>
