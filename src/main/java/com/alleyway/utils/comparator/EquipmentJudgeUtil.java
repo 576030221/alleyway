@@ -3,6 +3,9 @@ package com.alleyway.utils.comparator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 设备判断
+ */
 public class EquipmentJudgeUtil {
     /**
      * 判断是否为电脑用户

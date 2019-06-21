@@ -111,6 +111,7 @@ public class VerifyServiceImpl implements VerifyService {
     /**
      * 初始化 将用户录入用户等级表，初始化等级为0
      */
+    @Override
     public void enteringUserGradeTable(int userId) {
         UserGrade userGrade = new UserGrade();
         userGrade.setUserId(userId);
@@ -131,6 +132,7 @@ public class VerifyServiceImpl implements VerifyService {
      * @param userPhone
      * @param ip
      */
+    @Override
     public String getPhoneVerify(String userPhone, String ip) {
         // 判断手机位数
         if (userPhone.length()!=11) {
