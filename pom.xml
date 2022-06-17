@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.38</version>
+            <version>1.2.83</version>
         </dependency>
 
         <!-- 编译时给实体类自动添加get set等 -->
